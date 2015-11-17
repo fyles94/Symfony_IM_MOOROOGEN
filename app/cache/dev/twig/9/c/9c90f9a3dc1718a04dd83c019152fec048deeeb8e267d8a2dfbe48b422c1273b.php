@@ -15,8 +15,8 @@ class __TwigTemplate_356e7368baa34d1d371e726f2f73bf2efa6403ecdaedbda93cb3764f9aa
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_94df4b0363f4d3c9e6b13c2febeb7d60e7b496f5aed94c816247668518216873 = $this->env->getExtension("native_profiler");
-        $__internal_94df4b0363f4d3c9e6b13c2febeb7d60e7b496f5aed94c816247668518216873->enter($__internal_94df4b0363f4d3c9e6b13c2febeb7d60e7b496f5aed94c816247668518216873_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "::nav.html.twig"));
+        $__internal_02334a84763533e757acb9a7ea5287e49139167a06eca90942193b96ca92c388 = $this->env->getExtension("native_profiler");
+        $__internal_02334a84763533e757acb9a7ea5287e49139167a06eca90942193b96ca92c388->enter($__internal_02334a84763533e757acb9a7ea5287e49139167a06eca90942193b96ca92c388_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "::nav.html.twig"));
 
         // line 1
         echo "<nav class=\"navbar navbar-fixed-top navbar-default\" role=\"navigation\">
@@ -37,14 +37,22 @@ class __TwigTemplate_356e7368baa34d1d371e726f2f73bf2efa6403ecdaedbda93cb3764f9aa
       <li><a href=\"";
         // line 16
         echo $this->env->getExtension('routing')->getPath("esiea_blog_homepage");
-        echo "\"><i class=\"fa fa-home\"></i> Accueil</a></li>
+        echo "\"></i> Accueil</a></li>
+      <li><a href=\"";
+        // line 17
+        echo $this->env->getExtension('routing')->getPath("esiea_blog_chat");
+        echo "\"></i> Chat</a></li>
+      <li><a href=\"";
+        // line 18
+        echo $this->env->getExtension('routing')->getPath("esiea_blog_contact");
+        echo "\"></i> Contact</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container -->
 </nav>
 ";
         
-        $__internal_94df4b0363f4d3c9e6b13c2febeb7d60e7b496f5aed94c816247668518216873->leave($__internal_94df4b0363f4d3c9e6b13c2febeb7d60e7b496f5aed94c816247668518216873_prof);
+        $__internal_02334a84763533e757acb9a7ea5287e49139167a06eca90942193b96ca92c388->leave($__internal_02334a84763533e757acb9a7ea5287e49139167a06eca90942193b96ca92c388_prof);
 
     }
 
@@ -60,7 +68,7 @@ class __TwigTemplate_356e7368baa34d1d371e726f2f73bf2efa6403ecdaedbda93cb3764f9aa
 
     public function getDebugInfo()
     {
-        return array (  39 => 16,  22 => 1,);
+        return array (  47 => 18,  43 => 17,  39 => 16,  22 => 1,);
     }
 }
 /* <nav class="navbar navbar-fixed-top navbar-default" role="navigation">*/
@@ -78,7 +86,9 @@ class __TwigTemplate_356e7368baa34d1d371e726f2f73bf2efa6403ecdaedbda93cb3764f9aa
 /*     <!-- Collect the nav links, forms, and other content for toggling -->*/
 /*     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">*/
 /*       <ul class="nav navbar-nav">*/
-/*       <li><a href="{{ path('esiea_blog_homepage') }}"><i class="fa fa-home"></i> Accueil</a></li>*/
+/*       <li><a href="{{ path('esiea_blog_homepage') }}"></i> Accueil</a></li>*/
+/*       <li><a href="{{ path('esiea_blog_chat') }}"></i> Chat</a></li>*/
+/*       <li><a href="{{ path('esiea_blog_contact') }}"></i> Contact</a></li>*/
 /*       </ul>*/
 /*     </div><!-- /.navbar-collapse -->*/
 /*   </div><!-- /.container -->*/

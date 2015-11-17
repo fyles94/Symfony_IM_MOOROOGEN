@@ -133,7 +133,20 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return $this->redirect($pathinfo.'/', 'esiea_blog_homepage');
             }
 
-            return array (  '_controller' => 'Esiea\\BlogBundle\\Controller\\DefaultController::indexAction',  'name' => 'Remy',  '_route' => 'esiea_blog_homepage',);
+            return array (  '_controller' => 'Esiea\\BlogBundle\\Controller\\DefaultController::indexAction',  '_route' => 'esiea_blog_homepage',);
+        }
+
+        if (0 === strpos($pathinfo, '/c')) {
+            // esiea_blog_contact
+            if ($pathinfo === '/contact') {
+                return array (  '_controller' => 'Esiea\\BlogBundle\\Controller\\DefaultController::contactAction',  '_route' => 'esiea_blog_contact',);
+            }
+
+            // esiea_blog_chat
+            if ($pathinfo === '/chat') {
+                return array (  '_controller' => 'Esiea\\BlogBundle\\Controller\\DefaultController::chatAction',  '_route' => 'esiea_blog_chat',);
+            }
+
         }
 
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();

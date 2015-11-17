@@ -1,3 +1,11 @@
 esiea_blog_homepage:
     path:    /
-    defaults:    {_controller:EsieaBlogBundle:Default:index,name:Remy} 
+    defaults:    {_controller:EsieaBlogBundle:Default:index}
+
+esiea_blog_contact:
+    path:    /contact
+    defaults:    {_controller:EsieaBlogBundle:Default:contact}
+
+esiea_blog_chat:
+    path:    /chat
+    defaults:    {_controller:EsieaBlogBundle:Default:chat}
