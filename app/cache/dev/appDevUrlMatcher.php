@@ -151,9 +151,17 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return $this->mergeDefaults(array_replace($matches, array('_route' => 'esiea_blog_modifier')), array (  '_controller' => 'Esiea\\BlogBundle\\Controller\\DefaultController::modifierAction',));
         }
 
-        // esiea_blog_supprimer
-        if (0 === strpos($pathinfo, '/acteur/supprimer') && preg_match('#^/acteur/supprimer/(?P<id>\\d+)$#s', $pathinfo, $matches)) {
-            return $this->mergeDefaults(array_replace($matches, array('_route' => 'esiea_blog_supprimer')), array (  '_controller' => 'Esiea\\BlogBundle\\Controller\\DefaultController::supprimerAction',));
+        if (0 === strpos($pathinfo, '/a')) {
+            // esiea_blog_supprimer
+            if (0 === strpos($pathinfo, '/acteur/supprimer') && preg_match('#^/acteur/supprimer/(?P<id>\\d+)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'esiea_blog_supprimer')), array (  '_controller' => 'Esiea\\BlogBundle\\Controller\\DefaultController::supprimerAction',));
+            }
+
+            // esiea_blog_article
+            if (0 === strpos($pathinfo, '/article') && preg_match('#^/article/(?P<id>\\d+)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'esiea_blog_article')), array (  '_controller' => 'Esiea\\BlogBundle\\Controller\\DefaultController::articleAction',));
+            }
+
         }
 
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();

@@ -22,20 +22,20 @@ class __TwigTemplate_9a8bb03dd98094ad271a28cd9cb6377a5324983e21c121f775ad301c65d
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_f1b083c730aa9c3284224f8fef0a6df78c9393b45c544c9711b034b926debdd0 = $this->env->getExtension("native_profiler");
-        $__internal_f1b083c730aa9c3284224f8fef0a6df78c9393b45c544c9711b034b926debdd0->enter($__internal_f1b083c730aa9c3284224f8fef0a6df78c9393b45c544c9711b034b926debdd0_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "EsieaBlogBundle:Default:supprimer.html.twig"));
+        $__internal_cd2e7013a0ac521a2f5c9a691fbe049327e11639de493466b37011ebc3d6445a = $this->env->getExtension("native_profiler");
+        $__internal_cd2e7013a0ac521a2f5c9a691fbe049327e11639de493466b37011ebc3d6445a->enter($__internal_cd2e7013a0ac521a2f5c9a691fbe049327e11639de493466b37011ebc3d6445a_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "EsieaBlogBundle:Default:supprimer.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_f1b083c730aa9c3284224f8fef0a6df78c9393b45c544c9711b034b926debdd0->leave($__internal_f1b083c730aa9c3284224f8fef0a6df78c9393b45c544c9711b034b926debdd0_prof);
+        $__internal_cd2e7013a0ac521a2f5c9a691fbe049327e11639de493466b37011ebc3d6445a->leave($__internal_cd2e7013a0ac521a2f5c9a691fbe049327e11639de493466b37011ebc3d6445a_prof);
 
     }
 
     // line 7
     public function block_title($context, array $blocks = array())
     {
-        $__internal_69c632754c7882eeb0c83f4d11ccef53db53eaf2d5e3206f5c25198b10f0c026 = $this->env->getExtension("native_profiler");
-        $__internal_69c632754c7882eeb0c83f4d11ccef53db53eaf2d5e3206f5c25198b10f0c026->enter($__internal_69c632754c7882eeb0c83f4d11ccef53db53eaf2d5e3206f5c25198b10f0c026_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
+        $__internal_e99c9577abe27f3cba6bea03753b084edaab78953410d447770c11997e6f2bc8 = $this->env->getExtension("native_profiler");
+        $__internal_e99c9577abe27f3cba6bea03753b084edaab78953410d447770c11997e6f2bc8->enter($__internal_e99c9577abe27f3cba6bea03753b084edaab78953410d447770c11997e6f2bc8_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
 
         // line 8
         echo "  Suppression d'annonce - ";
@@ -43,15 +43,15 @@ class __TwigTemplate_9a8bb03dd98094ad271a28cd9cb6377a5324983e21c121f775ad301c65d
         echo "
 ";
         
-        $__internal_69c632754c7882eeb0c83f4d11ccef53db53eaf2d5e3206f5c25198b10f0c026->leave($__internal_69c632754c7882eeb0c83f4d11ccef53db53eaf2d5e3206f5c25198b10f0c026_prof);
+        $__internal_e99c9577abe27f3cba6bea03753b084edaab78953410d447770c11997e6f2bc8->leave($__internal_e99c9577abe27f3cba6bea03753b084edaab78953410d447770c11997e6f2bc8_prof);
 
     }
 
     // line 11
     public function block_body($context, array $blocks = array())
     {
-        $__internal_046cffa096d3234296e15ee144d003f90d782c85d0813caa1687f2c8dc5f8800 = $this->env->getExtension("native_profiler");
-        $__internal_046cffa096d3234296e15ee144d003f90d782c85d0813caa1687f2c8dc5f8800->enter($__internal_046cffa096d3234296e15ee144d003f90d782c85d0813caa1687f2c8dc5f8800_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_b9145b2332c4939ade1ce0f6d4c27adba653f3b85b3549ac3c693f8ad599cb04 = $this->env->getExtension("native_profiler");
+        $__internal_b9145b2332c4939ade1ce0f6d4c27adba653f3b85b3549ac3c693f8ad599cb04->enter($__internal_b9145b2332c4939ade1ce0f6d4c27adba653f3b85b3549ac3c693f8ad599cb04_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
         // line 12
         echo "  <div style=\"width:auto; text-align:center\">
@@ -66,14 +66,14 @@ class __TwigTemplate_9a8bb03dd98094ad271a28cd9cb6377a5324983e21c121f775ad301c65d
     <a href=\"";
         // line 21
         echo $this->env->getExtension('routing')->getPath("esiea_blog_homepage");
-        echo "\" class=\"bouton boutonRetour\">
+        echo "\" class=\"btn btn-default\">
       Retour
     </a>
   </p>
 </div>
 ";
         
-        $__internal_046cffa096d3234296e15ee144d003f90d782c85d0813caa1687f2c8dc5f8800->leave($__internal_046cffa096d3234296e15ee144d003f90d782c85d0813caa1687f2c8dc5f8800_prof);
+        $__internal_b9145b2332c4939ade1ce0f6d4c27adba653f3b85b3549ac3c693f8ad599cb04->leave($__internal_b9145b2332c4939ade1ce0f6d4c27adba653f3b85b3549ac3c693f8ad599cb04_prof);
 
     }
 
@@ -112,7 +112,7 @@ class __TwigTemplate_9a8bb03dd98094ad271a28cd9cb6377a5324983e21c121f775ad301c65d
 /*   </p>*/
 /* */
 /*   <p>*/
-/*     <a href="{{ path('esiea_blog_homepage') }}" class="bouton boutonRetour">*/
+/*     <a href="{{ path('esiea_blog_homepage') }}" class="btn btn-default">*/
 /*       Retour*/
 /*     </a>*/
 /*   </p>*/

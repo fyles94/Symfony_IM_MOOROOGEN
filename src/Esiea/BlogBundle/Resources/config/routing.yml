@@ -23,3 +23,9 @@ esiea_blog_supprimer:
     defaults: { _controller: EsieaBlogBundle:Default:supprimer }
     requirements:
         id: \d+
+
+esiea_blog_article:
+    pattern: /article/{id}
+    defaults: { _controller: EsieaBlogBundle:Default:article }
+    requirements:
+        id: \d+

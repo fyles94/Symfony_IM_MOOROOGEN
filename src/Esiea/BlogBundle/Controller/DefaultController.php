@@ -126,4 +126,15 @@ class DefaultController extends Controller
     return $this->render('EsieaBlogBundle:Default:supprimer.html.twig', array('advert' => $advert));
   }
 
+   public function articleAction($id)
+  {
+    $em = $this->getDoctrine()->getManager();
+    $advert = $em->getRepository('EsieaBlogBundle:Advert')->find($id);
+
+  if (null === $advert) {
+    throw new NotFoundHttpException("L'annonce d'id ".$id." n'existe pas.");
+    } 
+
+    return $this->render('EsieaBlogBundle:Default:article.html.twig', array('advert'=> $advert));
+  }
 }
