@@ -7,25 +7,21 @@
 {% endblock %}
 
 {% block body %}
-
   <h2>Toutes les posts</h2>
 
     {% for advert in listAdvert %}
-  <div style="width:auto; text-align:center">
-       <div class="cadre">
-      <div class="fondArticle">
-        <div class="title"> {{advert.title}}</div>
-        <center>par {{ advert.author }},
-        le {{ advert.date|date('d/m/Y') }}</center>
-      </div>
-      <div class="panel-body">{{ advert.content }}</div>
+  <div style="width:auto; text-align:center ">
+        <div class="title">
+         {{advert.title}}</div>
+        <div class="text">par {{ advert.author }},
+        le {{ advert.date|date('d/m/Y') }}</div>
+      <div class="text">{{ advert.content }}</div>
           <a href="{{ path('esiea_blog_modifier', {'id': advert.id}) }}" class="btn btn-default">> 
              Modifier l'information
     </a>
           <a href="{{ path('esiea_blog_supprimer', {'id': advert.id}) }}" class="btn btn-danger">
       Supprimer l'information
     </a>
-    </div>
 </div>
     {% else %}
       <li>Aucun article disponible pour le moment.</li>

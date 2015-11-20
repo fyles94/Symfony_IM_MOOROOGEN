@@ -4,8 +4,23 @@
 
 html,body {
 	height:100%;
-    background:center no-repeat fixed url('https://snap-photos.s3.amazonaws.com/img-thumbs/960w/BGRA0KYCD8.jpg');
-    background-size: cover;
-    color:#444;
-    font-family: 'Lato', sans-serif;
+    background:center no-repeat fixed url('http://sebsauvage.net/galerie/photos/Wallpapers/deviantart.com/Dark_Wood/1680x1050.jpg');
 }
+
+
+.title  {
+	font-size: 40px;
+	color: white;
+}
+
+h2  {
+	font-size: 40px;
+	color: blue;
+	text-align: center;
+}
+
+.text 	{
+	font-size: 14px;
+	color: white;	
+}
+

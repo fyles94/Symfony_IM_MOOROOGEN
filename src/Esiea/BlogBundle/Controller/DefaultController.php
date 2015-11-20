@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Esiea\BlogBundle\Entity\Advert;
 
 
@@ -25,13 +26,6 @@ class DefaultController extends Controller
     $listAdvert = $repository->findBy(array(),array('date' => 'desc'),100,0);
     return $this->render('EsieaBlogBundle:Default:index.html.twig', array('listAdvert' => $listAdvert));
     }
-
-  public function contactAction()
-   {
-
- return $this->container->get('templating')->renderResponse('EsieaBlogBundle:Default:contact.html.twig');
-
-   }
 
     public function vueAction($id)
     {
@@ -101,14 +95,14 @@ class DefaultController extends Controller
   $form->handleRequest($request);
   
    if ($form->isValid()) {
-      $em->persist($article);
+      $em->persist($advert);
       $em->flush();
       $request->getSession()->getFlashBag()->add('notice','Annonce bien enregistrée.');
       return $this->redirect($this->generateUrl('esiea_blog_vue', array('id' => $advert->getId())));
     }
   
     return $this->render('EsieaBlogBundle:Default:modifier.html.twig',
-    array('form' => $form->createView(),'article' => $advert));
+    array('form' => $form->createView(),'advert' => $advert));
     }
 
 
