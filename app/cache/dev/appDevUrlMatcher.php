@@ -136,17 +136,6 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array (  '_controller' => 'Esiea\\BlogBundle\\Controller\\DefaultController::indexAction',  '_route' => 'esiea_blog_homepage',);
         }
 
-        // esiea_blog_contact
-        if ($pathinfo === '/contact') {
-            if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
-                $allow = array_merge($allow, array('GET', 'HEAD'));
-                goto not_esiea_blog_contact;
-            }
-
-            return array (  '_controller' => 'Esiea\\BlogBundle\\Controller\\DefaultController::contactAction',  '_route' => 'esiea_blog_contact',);
-        }
-        not_esiea_blog_contact:
-
         // esiea_blog_vue
         if (preg_match('#^/(?P<id>\\d+)$#s', $pathinfo, $matches)) {
             return $this->mergeDefaults(array_replace($matches, array('_route' => 'esiea_blog_vue')), array (  '_controller' => 'Esiea\\BlogBundle\\Controller\\DefaultController::vueAction',));
@@ -158,12 +147,12 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         }
 
         // esiea_blog_modifier
-        if (0 === strpos($pathinfo, '/modifier') && preg_match('#^/modifier/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+        if (0 === strpos($pathinfo, '/modifier') && preg_match('#^/modifier/(?P<id>\\d+)$#s', $pathinfo, $matches)) {
             return $this->mergeDefaults(array_replace($matches, array('_route' => 'esiea_blog_modifier')), array (  '_controller' => 'Esiea\\BlogBundle\\Controller\\DefaultController::modifierAction',));
         }
 
         // esiea_blog_supprimer
-        if (0 === strpos($pathinfo, '/acteur/supprimer') && preg_match('#^/acteur/supprimer/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+        if (0 === strpos($pathinfo, '/acteur/supprimer') && preg_match('#^/acteur/supprimer/(?P<id>\\d+)$#s', $pathinfo, $matches)) {
             return $this->mergeDefaults(array_replace($matches, array('_route' => 'esiea_blog_supprimer')), array (  '_controller' => 'Esiea\\BlogBundle\\Controller\\DefaultController::supprimerAction',));
         }
 

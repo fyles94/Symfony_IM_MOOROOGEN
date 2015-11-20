@@ -27,71 +27,29 @@ class DefaultController extends Controller
     }
 
   public function contactAction()
-         {
+   {
 
  return $this->container->get('templating')->renderResponse('EsieaBlogBundle:Default:contact.html.twig');
 
-            }
-
-  public function menuAction()
-
-  {
-
-    // On fixe en dur une liste ici, bien entendu par la suite
-
-    // on la récupérera depuis la BDD !
-
-    $listAdverts = array(
-      array('id' => 2, 'title' => 'Recherche développeur Symfony2'),
-      array('id' => 5, 'title' => 'Mission de webmaster'),
-      array('id' => 9, 'title' => 'Offre de stage webdesigner'));
-    return $this->render('EsieaBlogBundle:Default:menu.html.twig', array('listAdverts' => $listAdverts));
-
-  }
+   }
 
     public function vueAction($id)
     {
-    // On récupère le repository
 
     $repository = $this->getDoctrine()
-
       ->getManager()
-
-      ->getRepository('EsieaBlogBundle:Advert')
-
-    ;
-
-
-    // On récupère l'entité correspondante à l'id $id
+      ->getRepository('EsieaBlogBundle:Advert');
 
     $advert = $repository->find($id);
 
-
-    // $advert est donc une instance de OC\PlatformBundle\Entity\Advert
-
-    // ou null si l'id $id  n'existe pas, d'où ce if :
-
     if (null === $advert) {
-
       throw new NotFoundHttpException("L'annonce d'id ".$id." n'existe pas.");
+      }
 
+    return $this->render('EsieaBlogBundle:Default:vue.html.twig', array('advert' => $advert));
     }
 
 
-    // Le render ne change pas, on passait avant un tableau, maintenant un objet
-
-    return $this->render('EsieaBlogBundle:Default:vue.html.twig', array(
-
-      'advert' => $advert
-
-    ));
-    return $this->render('EsieaBlogBundle:Default:vue.html.twig', array('advert' => $Advert));
-    }
-
-
-
-
-    
     public function ajouterAction(Request $request)
     {
 
@@ -101,16 +59,15 @@ class DefaultController extends Controller
   
     $formBuilder = $this->get('form.factory')->createBuilder('form', $advert);
     $formBuilder
-      ->add('date',      'date')
-      ->add('title',     'text')
-      ->add('content',   'textarea')
-      ->add('author',    'text')
-      ->add('published', 'checkbox')
-      ->add('save',      'submit')
-    ;
+      ->add('date','date')
+      ->add('title','text')
+      ->add('content','textarea')
+      ->add('author','text')
+      ->add('published','checkbox')
+      ->add('save','submit');
     $form = $formBuilder->getForm();
-  $formBuilder->add('published', 'checkbox', array('required' => false));
-  $form->handleRequest($request);
+    $formBuilder->add('published', 'checkbox', array('required' => false));
+    $form->handleRequest($request);
 
   if ($form->isValid()) {
       $em->persist($advert);
@@ -121,15 +78,58 @@ class DefaultController extends Controller
       return $this->render('EsieaBlogBundle:Default:ajouter.html.twig', array('form' => $form->createView(),));
   }
 
-
-    public function modifierAction($id)
+    public function modifierAction($id,Request $request)
     {
-    return $this->container->get('templating')->renderResponse('EsieaBlogBundle:Default:modifier.html.twig');
+
+    $em = $this->getDoctrine()->getManager();
+    $advert = $em->getRepository('EsieaBlogBundle:Advert')->find($id);
+
+  if (null === $advert) {
+    throw new NotFoundHttpException("L'annonce d'id ".$id." n'existe pas.");
+    } 
+   
+    $formBuilder = $this->get('form.factory')->createBuilder('form', $advert);
+    $formBuilder
+      ->add('date','date', array("data" => $advert->getDate() ) )
+      ->add('title','text', array("data" => $advert->getTitle() ))
+      ->add('content','textarea', array("data" => $advert->getContent()))
+      ->add('author','text', array("data" => $advert->getAuthor()) )
+      ->add('published','checkbox')
+      ->add('save','submit');
+
+  $form = $formBuilder->getForm();
+  $form->handleRequest($request);
+  
+   if ($form->isValid()) {
+      $em->persist($article);
+      $em->flush();
+      $request->getSession()->getFlashBag()->add('notice','Annonce bien enregistrée.');
+      return $this->redirect($this->generateUrl('esiea_blog_vue', array('id' => $advert->getId())));
+    }
+  
+    return $this->render('EsieaBlogBundle:Default:modifier.html.twig',
+    array('form' => $form->createView(),'article' => $advert));
     }
 
-    public function supprimerAction($id)
+
+
+    public function supprimerAction($id,Request $request)
     {
-    return $this->container->get('templating')->renderResponse('EsieaBlogBundle:Default:supprimer.html.twig');
+
+    $em = $this->getDoctrine()->getManager();
+    $advert = $em->getRepository('EsieaBlogBundle:Advert')->find($id);
+    if ($advert == null) {
+      throw $this->createNotFoundException("L'annonce d'id ".$id." n'existe pas.");
     }
+    if ($request->isMethod('POST')) {
+    
+      $request->getSession()->getFlashBag()->add('info', 'Annonce bien supprimée.');
+      return $this->redirect($this->generateUrl('esiea_blog_vue'));
+    }
+    $em->remove($advert);
+    $em->flush();
+  
+    return $this->render('EsieaBlogBundle:Default:supprimer.html.twig', array('advert' => $advert));
+  }
 
 }

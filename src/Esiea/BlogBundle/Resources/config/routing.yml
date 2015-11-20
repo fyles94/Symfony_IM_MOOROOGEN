@@ -2,12 +2,6 @@ esiea_blog_homepage:
     path:    /
     defaults:    {_controller:EsieaBlogBundle:Default:index}
 
-esiea_blog_contact:
-    path:    /contact
-    defaults:    {_controller:EsieaBlogBundle:Default:contact}
-    requirements:
-        _method:  GET
-
 esiea_blog_vue:
     pattern: /{id}
     defaults: { _controller: EsieaBlogBundle:Default:vue }
@@ -21,7 +15,11 @@ esiea_blog_ajouter:
 esiea_blog_modifier:
     pattern: /modifier/{id}
     defaults: { _controller: EsieaBlogBundle:Default:modifier }
+    requirements:
+        id: \d+
 
 esiea_blog_supprimer:
     pattern: /acteur/supprimer/{id}
     defaults: { _controller: EsieaBlogBundle:Default:supprimer }
+    requirements:
+        id: \d+

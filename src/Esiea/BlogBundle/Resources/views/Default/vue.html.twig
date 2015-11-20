@@ -5,29 +5,23 @@
   Lecture d'une annonce - {{ parent() }}
 {% endblock %}
 
-{% block blog_body %}
-
+{% block body %}
+  <div style="width:auto; text-align:center">
   <h2>{{ advert.title }}</h2>
   <i>Par {{ advert.author }}, le {{ advert.date|date('d/m/Y') }}</i>
 
-  <div class="articleSelec">
-    {{ advert.title }}
-  </div>
+<div class= "container">
+
+  <FONT size="8pt"> L'article a été poster aver succès BRAVO!!! </FONT>
+
+</div>
 
   <p>
-    <a href="{{ path('esiea_blog_homepage') }}" class="bouton boutonRetour">
-      
-      Retour à la liste
-    </a>
 
-   <a href="{{ path('esiea_blog_modifier', {'id': advert.id}) }}" class="bouton boutonEdit">
-     
-      Modifier l'information
-    </a>
-    <a href="{{ path('esiea_blog_supprimer', {'id': advert.id}) }}" class="bouton boutonSupp">
-     
-      Supprimer l'information
+    <a href="{{ path('esiea_blog_homepage') }}" class="btn btn-default">
+      Retour à la liste des articles
+
     </a>
   </p>
-
+</div>
 {% endblock %}
