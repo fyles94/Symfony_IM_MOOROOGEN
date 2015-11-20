@@ -1,6 +1,28 @@
-{% extends '::base.html.twig' %}
-{% block title %}Accueil{% endblock %}
+{# src/OC/Blog/Resources/views/Article/index.html.twig #}
+
+{% extends "::base.html.twig" %}
+
+{% block title %}
+  Accueil - {{ parent() }}
+{% endblock %}
 
 {% block body %}
+
+  <h2>Toutes les informations</h2>
+
+    {% for advert in listAdvert %}
+       <div class="cadre">
+      <div class="fondArticle">
+        <center>par {{ advert.author }},
+        le {{ advert.date|date('d/m/Y') }}</center>
+      </div>
+      <div class="panel-body">{{ advert.content }}</div>
+    </div>
+
+    {% else %}
+      <li>Aucun article disponible pour le moment.</li>
+    <li>Cliquez sur "ajouter une nouvelle information" pour alimenté notre BLOG !</li>
+    {% endfor %}
+     
 
 {% endblock %}

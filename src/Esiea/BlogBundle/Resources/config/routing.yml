@@ -5,7 +5,23 @@ esiea_blog_homepage:
 esiea_blog_contact:
     path:    /contact
     defaults:    {_controller:EsieaBlogBundle:Default:contact}
+    requirements:
+        _method:  GET
 
-esiea_blog_chat:
-    path:    /chat
-    defaults:    {_controller:EsieaBlogBundle:Default:chat}
+esiea_blog_vue:
+    pattern: /{id}
+    defaults: { _controller: EsieaBlogBundle:Default:vue }
+    requirements:
+        id: \d+
+
+esiea_blog_ajouter:
+    pattern: /ajouter
+    defaults: { _controller: EsieaBlogBundle:Default:ajouter }
+
+esiea_blog_modifier:
+    pattern: /modifier/{id}
+    defaults: { _controller: EsieaBlogBundle:Default:modifier }
+
+esiea_blog_supprimer:
+    pattern: /acteur/supprimer/{id}
+    defaults: { _controller: EsieaBlogBundle:Default:supprimer }

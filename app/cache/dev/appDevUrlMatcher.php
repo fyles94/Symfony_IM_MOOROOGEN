@@ -136,17 +136,35 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array (  '_controller' => 'Esiea\\BlogBundle\\Controller\\DefaultController::indexAction',  '_route' => 'esiea_blog_homepage',);
         }
 
-        if (0 === strpos($pathinfo, '/c')) {
-            // esiea_blog_contact
-            if ($pathinfo === '/contact') {
-                return array (  '_controller' => 'Esiea\\BlogBundle\\Controller\\DefaultController::contactAction',  '_route' => 'esiea_blog_contact',);
+        // esiea_blog_contact
+        if ($pathinfo === '/contact') {
+            if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                $allow = array_merge($allow, array('GET', 'HEAD'));
+                goto not_esiea_blog_contact;
             }
 
-            // esiea_blog_chat
-            if ($pathinfo === '/chat') {
-                return array (  '_controller' => 'Esiea\\BlogBundle\\Controller\\DefaultController::chatAction',  '_route' => 'esiea_blog_chat',);
-            }
+            return array (  '_controller' => 'Esiea\\BlogBundle\\Controller\\DefaultController::contactAction',  '_route' => 'esiea_blog_contact',);
+        }
+        not_esiea_blog_contact:
 
+        // esiea_blog_vue
+        if (preg_match('#^/(?P<id>\\d+)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'esiea_blog_vue')), array (  '_controller' => 'Esiea\\BlogBundle\\Controller\\DefaultController::vueAction',));
+        }
+
+        // esiea_blog_ajouter
+        if ($pathinfo === '/ajouter') {
+            return array (  '_controller' => 'Esiea\\BlogBundle\\Controller\\DefaultController::ajouterAction',  '_route' => 'esiea_blog_ajouter',);
+        }
+
+        // esiea_blog_modifier
+        if (0 === strpos($pathinfo, '/modifier') && preg_match('#^/modifier/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'esiea_blog_modifier')), array (  '_controller' => 'Esiea\\BlogBundle\\Controller\\DefaultController::modifierAction',));
+        }
+
+        // esiea_blog_supprimer
+        if (0 === strpos($pathinfo, '/acteur/supprimer') && preg_match('#^/acteur/supprimer/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'esiea_blog_supprimer')), array (  '_controller' => 'Esiea\\BlogBundle\\Controller\\DefaultController::supprimerAction',));
         }
 
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();

@@ -1,0 +1,33 @@
+
+{% extends "::base.html.twig" %}
+
+{% block title %}
+  Lecture d'une annonce - {{ parent() }}
+{% endblock %}
+
+{% block blog_body %}
+
+  <h2>{{ advert.title }}</h2>
+  <i>Par {{ advert.author }}, le {{ advert.date|date('d/m/Y') }}</i>
+
+  <div class="articleSelec">
+    {{ advert.title }}
+  </div>
+
+  <p>
+    <a href="{{ path('esiea_blog_homepage') }}" class="bouton boutonRetour">
+      
+      Retour à la liste
+    </a>
+
+   <a href="{{ path('esiea_blog_modifier', {'id': advert.id}) }}" class="bouton boutonEdit">
+     
+      Modifier l'information
+    </a>
+    <a href="{{ path('esiea_blog_supprimer', {'id': advert.id}) }}" class="bouton boutonSupp">
+     
+      Supprimer l'information
+    </a>
+  </p>
+
+{% endblock %}
