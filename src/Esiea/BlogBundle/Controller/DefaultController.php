@@ -78,6 +78,7 @@ class DefaultController extends Controller
     $request = $this->get('request');
     $em = $this->getDoctrine()->getManager();
     $advert = $em->getRepository('EsieaBlogBundle:Advert')->find($id);
+    $advert->setDate(new \Datetime());
 
   if (null === $advert) {
     throw new NotFoundHttpException("L'annonce d'id ".$id." n'existe pas.");
@@ -85,7 +86,6 @@ class DefaultController extends Controller
    
     $formBuilder = $this->get('form.factory')->createBuilder('form', $advert);
     $formBuilder
-      ->add('date','date', array("data" =>$advert->getDate() ) )
       ->add('title','text', array("data" => $advert->getTitle() ))
       ->add('content','textarea', array("data" => $advert->getContent()))
       ->add('author','text', array("data" => $advert->getAuthor()) )
