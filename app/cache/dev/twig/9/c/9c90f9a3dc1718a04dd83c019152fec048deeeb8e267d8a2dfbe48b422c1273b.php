@@ -15,40 +15,62 @@ class __TwigTemplate_356e7368baa34d1d371e726f2f73bf2efa6403ecdaedbda93cb3764f9aa
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_199620b809871ca4583eec6e62226716d76b60b4ef288d003eff0beab8b36ddd = $this->env->getExtension("native_profiler");
-        $__internal_199620b809871ca4583eec6e62226716d76b60b4ef288d003eff0beab8b36ddd->enter($__internal_199620b809871ca4583eec6e62226716d76b60b4ef288d003eff0beab8b36ddd_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "::nav.html.twig"));
+        $__internal_fcb905bb760d5106b37319c433fe582fd77e11b010fa8f495492fa7b70ac648a = $this->env->getExtension("native_profiler");
+        $__internal_fcb905bb760d5106b37319c433fe582fd77e11b010fa8f495492fa7b70ac648a->enter($__internal_fcb905bb760d5106b37319c433fe582fd77e11b010fa8f495492fa7b70ac648a_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "::nav.html.twig"));
 
         // line 1
-        echo "<nav class=\"navbar navbar navbar-default\" role=\"navigation\">
-  <div class=\"container\">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class=\"navbar-header\">
-      <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#bs-example-navbar-collapse-1\" aria-expanded=\"false\">
-        <span class=\"icon-bar\"></span>
-        <span class=\"icon-bar\"></span>
-        <span class=\"icon-bar\"></span>
-      </button>
-      <a class=\"navbar-brand\" href=\"#\">Les articles</a>
-    </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">
-      <ul class=\"nav navbar-nav\">
-      <li><a href=\"";
-        // line 16
+        echo "<html>
+  
+    <head>
+      <title>Salut</title>
+      <meta charset=\"utf-8\">
+      <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">
+      <script type=\"text/javascript\" src=\"http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js\"></script>
+      <script type=\"text/javascript\" src=\"http://netdna.bootstrapcdn.com/bootstrap/3.3./js/bootstrap.min.js\"></script>
+      <link href=\"http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css\"
+      rel=\"stylesheet\" type=\"text/css\">
+      <link href=\"https://bootswatch.com/yeti/bootstrap.min.css\" rel=\"stylesheet\"
+      type=\"text/css\">
+    </head>
+  
+  <body>
+    <div class=\"navbar navbar-default navbar-fixed-top\">
+      <div class=\"container\">
+        <div class=\"navbar-header\">
+          <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\"#navbar-ex-collapse\">
+            <span class=\"sr-only\">Toggle navigation</span>
+            <span class=\"icon-bar\"></span>
+            <span class=\"icon-bar\"></span>
+            <span class=\"icon-bar\"></span>
+          </button>
+          <a class=\"navbar-brand\" href=\"";
+        // line 25
         echo $this->env->getExtension('routing')->getPath("esiea_blog_homepage");
-        echo "\"></i> Accueil</a></li>
-      <li><a href=\"";
-        // line 17
+        echo "\"><span>PokeBlog</span></a>
+        </div>
+        <div class=\"collapse navbar-collapse\" id=\"navbar-ex-collapse\">
+          <ul class=\"nav navbar-nav navbar-left\">
+            <li class=\"active\">
+              <a href=\"";
+        // line 30
+        echo $this->env->getExtension('routing')->getPath("esiea_blog_homepage");
+        echo "\"><i class=\"fa fa-fw fa-home text-primary\"></i> Home&nbsp;</a>
+            </li>
+            <li>
+              <a href=\"";
+        // line 33
         echo $this->env->getExtension('routing')->getPath("esiea_blog_ajouter");
-        echo "\"></i> Ajouter un article</a></li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container -->
-</nav>
-";
+        echo "\"><i class=\"fa fa-comments fa-fw text-primary\"></i> Ajouter un article &nbsp;<br></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+
+</html>";
         
-        $__internal_199620b809871ca4583eec6e62226716d76b60b4ef288d003eff0beab8b36ddd->leave($__internal_199620b809871ca4583eec6e62226716d76b60b4ef288d003eff0beab8b36ddd_prof);
+        $__internal_fcb905bb760d5106b37319c433fe582fd77e11b010fa8f495492fa7b70ac648a->leave($__internal_fcb905bb760d5106b37319c433fe582fd77e11b010fa8f495492fa7b70ac648a_prof);
 
     }
 
@@ -64,28 +86,47 @@ class __TwigTemplate_356e7368baa34d1d371e726f2f73bf2efa6403ecdaedbda93cb3764f9aa
 
     public function getDebugInfo()
     {
-        return array (  43 => 17,  39 => 16,  22 => 1,);
+        return array (  62 => 33,  56 => 30,  48 => 25,  22 => 1,);
     }
 }
-/* <nav class="navbar navbar navbar-default" role="navigation">*/
-/*   <div class="container">*/
-/*     <!-- Brand and toggle get grouped for better mobile display -->*/
-/*     <div class="navbar-header">*/
-/*       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">*/
-/*         <span class="icon-bar"></span>*/
-/*         <span class="icon-bar"></span>*/
-/*         <span class="icon-bar"></span>*/
-/*       </button>*/
-/*       <a class="navbar-brand" href="#">Les articles</a>*/
+/* <html>*/
+/*   */
+/*     <head>*/
+/*       <title>Salut</title>*/
+/*       <meta charset="utf-8">*/
+/*       <meta name="viewport" content="width=device-width, initial-scale=1">*/
+/*       <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>*/
+/*       <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3./js/bootstrap.min.js"></script>*/
+/*       <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css"*/
+/*       rel="stylesheet" type="text/css">*/
+/*       <link href="https://bootswatch.com/yeti/bootstrap.min.css" rel="stylesheet"*/
+/*       type="text/css">*/
+/*     </head>*/
+/*   */
+/*   <body>*/
+/*     <div class="navbar navbar-default navbar-fixed-top">*/
+/*       <div class="container">*/
+/*         <div class="navbar-header">*/
+/*           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">*/
+/*             <span class="sr-only">Toggle navigation</span>*/
+/*             <span class="icon-bar"></span>*/
+/*             <span class="icon-bar"></span>*/
+/*             <span class="icon-bar"></span>*/
+/*           </button>*/
+/*           <a class="navbar-brand" href="{{path('esiea_blog_homepage')}}"><span>PokeBlog</span></a>*/
+/*         </div>*/
+/*         <div class="collapse navbar-collapse" id="navbar-ex-collapse">*/
+/*           <ul class="nav navbar-nav navbar-left">*/
+/*             <li class="active">*/
+/*               <a href="{{path('esiea_blog_homepage')}}"><i class="fa fa-fw fa-home text-primary"></i> Home&nbsp;</a>*/
+/*             </li>*/
+/*             <li>*/
+/*               <a href="{{path('esiea_blog_ajouter')}}"><i class="fa fa-comments fa-fw text-primary"></i> Ajouter un article &nbsp;<br></a>*/
+/*             </li>*/
+/*           </ul>*/
+/*         </div>*/
+/*       </div>*/
 /*     </div>*/
+/*   </body>*/
 /* */
-/*     <!-- Collect the nav links, forms, and other content for toggling -->*/
-/*     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">*/
-/*       <ul class="nav navbar-nav">*/
-/*       <li><a href="{{ path('esiea_blog_homepage') }}"></i> Accueil</a></li>*/
-/*       <li><a href="{{ path('esiea_blog_ajouter') }}"></i> Ajouter un article</a></li>*/
-/*       </ul>*/
-/*     </div><!-- /.navbar-collapse -->*/
-/*   </div><!-- /.container -->*/
-/* </nav>*/
-/* */
+/* </html>*/

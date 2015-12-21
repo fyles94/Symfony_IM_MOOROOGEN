@@ -22,60 +22,51 @@ class __TwigTemplate_61bea2e3666dc16d014c0af3bbc29be721d878122e77a1405e8f3cce941
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_d099c4942ddeda1b28642e438f0d02e6fac11cb3978e5e0e90df5a5aea274ceb = $this->env->getExtension("native_profiler");
-        $__internal_d099c4942ddeda1b28642e438f0d02e6fac11cb3978e5e0e90df5a5aea274ceb->enter($__internal_d099c4942ddeda1b28642e438f0d02e6fac11cb3978e5e0e90df5a5aea274ceb_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "EsieaBlogBundle:Default:vue.html.twig"));
+        $__internal_6b3b19755a25c74678f4840335ae663e4f51b5071d429062ac712abce4830c2c = $this->env->getExtension("native_profiler");
+        $__internal_6b3b19755a25c74678f4840335ae663e4f51b5071d429062ac712abce4830c2c->enter($__internal_6b3b19755a25c74678f4840335ae663e4f51b5071d429062ac712abce4830c2c_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "EsieaBlogBundle:Default:vue.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_d099c4942ddeda1b28642e438f0d02e6fac11cb3978e5e0e90df5a5aea274ceb->leave($__internal_d099c4942ddeda1b28642e438f0d02e6fac11cb3978e5e0e90df5a5aea274ceb_prof);
+        $__internal_6b3b19755a25c74678f4840335ae663e4f51b5071d429062ac712abce4830c2c->leave($__internal_6b3b19755a25c74678f4840335ae663e4f51b5071d429062ac712abce4830c2c_prof);
 
     }
 
     // line 4
     public function block_title($context, array $blocks = array())
     {
-        $__internal_70cc85dd012da37c065c72e0e9f9fd1b04a7d28110d53bb7343adfd7a8a46038 = $this->env->getExtension("native_profiler");
-        $__internal_70cc85dd012da37c065c72e0e9f9fd1b04a7d28110d53bb7343adfd7a8a46038->enter($__internal_70cc85dd012da37c065c72e0e9f9fd1b04a7d28110d53bb7343adfd7a8a46038_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
+        $__internal_2625751849154f7d1f48d049db41cd7da397ed66cb8a1ef59ee6b80b4d93b9af = $this->env->getExtension("native_profiler");
+        $__internal_2625751849154f7d1f48d049db41cd7da397ed66cb8a1ef59ee6b80b4d93b9af->enter($__internal_2625751849154f7d1f48d049db41cd7da397ed66cb8a1ef59ee6b80b4d93b9af_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
 
         // line 5
-        echo "  Lecture d'une annonce - ";
+        echo "  Lecture du Post - ";
         $this->displayParentBlock("title", $context, $blocks);
         echo "
 ";
         
-        $__internal_70cc85dd012da37c065c72e0e9f9fd1b04a7d28110d53bb7343adfd7a8a46038->leave($__internal_70cc85dd012da37c065c72e0e9f9fd1b04a7d28110d53bb7343adfd7a8a46038_prof);
+        $__internal_2625751849154f7d1f48d049db41cd7da397ed66cb8a1ef59ee6b80b4d93b9af->leave($__internal_2625751849154f7d1f48d049db41cd7da397ed66cb8a1ef59ee6b80b4d93b9af_prof);
 
     }
 
     // line 8
     public function block_body($context, array $blocks = array())
     {
-        $__internal_cc57ed6a9f8cb1808c89b52676451a52dd28ffff12f64a504a4dc4d270807fc5 = $this->env->getExtension("native_profiler");
-        $__internal_cc57ed6a9f8cb1808c89b52676451a52dd28ffff12f64a504a4dc4d270807fc5->enter($__internal_cc57ed6a9f8cb1808c89b52676451a52dd28ffff12f64a504a4dc4d270807fc5_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_b8d2b6d673df61cc0cc6645b859eec38d586aaa19bcf0d70e47638211fbdfb12 = $this->env->getExtension("native_profiler");
+        $__internal_b8d2b6d673df61cc0cc6645b859eec38d586aaa19bcf0d70e47638211fbdfb12->enter($__internal_b8d2b6d673df61cc0cc6645b859eec38d586aaa19bcf0d70e47638211fbdfb12_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
         // line 9
         echo "  <div style=\"width:auto; text-align:center\">
-  <h2>";
-        // line 10
-        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["advert"]) ? $context["advert"] : $this->getContext($context, "advert")), "title", array()), "html", null, true);
-        echo "</h2>
-  <i>Par ";
-        // line 11
-        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["advert"]) ? $context["advert"] : $this->getContext($context, "advert")), "author", array()), "html", null, true);
-        echo ", le ";
-        echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute((isset($context["advert"]) ? $context["advert"] : $this->getContext($context, "advert")), "date", array()), "d/m/Y"), "html", null, true);
-        echo "</i>
+
 
 <div class= \"container\">
 
-  <h2>L'article a été poster aver succès BRAVO!!! </h2>
+  <h1>Le Post a été poster aver succès! </h1>
 
 </div>
 
   <p>
 
     <a href=\"";
-        // line 21
+        // line 20
         echo $this->env->getExtension('routing')->getPath("esiea_blog_homepage");
         echo "\" class=\"btn btn-default\">
       Retour à la liste des articles
@@ -85,7 +76,7 @@ class __TwigTemplate_61bea2e3666dc16d014c0af3bbc29be721d878122e77a1405e8f3cce941
 </div>
 ";
         
-        $__internal_cc57ed6a9f8cb1808c89b52676451a52dd28ffff12f64a504a4dc4d270807fc5->leave($__internal_cc57ed6a9f8cb1808c89b52676451a52dd28ffff12f64a504a4dc4d270807fc5_prof);
+        $__internal_b8d2b6d673df61cc0cc6645b859eec38d586aaa19bcf0d70e47638211fbdfb12->leave($__internal_b8d2b6d673df61cc0cc6645b859eec38d586aaa19bcf0d70e47638211fbdfb12_prof);
 
     }
 
@@ -101,24 +92,23 @@ class __TwigTemplate_61bea2e3666dc16d014c0af3bbc29be721d878122e77a1405e8f3cce941
 
     public function getDebugInfo()
     {
-        return array (  79 => 21,  64 => 11,  60 => 10,  57 => 9,  51 => 8,  41 => 5,  35 => 4,  11 => 2,);
+        return array (  70 => 20,  57 => 9,  51 => 8,  41 => 5,  35 => 4,  11 => 2,);
     }
 }
 /* */
 /* {% extends "::base.html.twig" %}*/
 /* */
 /* {% block title %}*/
-/*   Lecture d'une annonce - {{ parent() }}*/
+/*   Lecture du Post - {{ parent() }}*/
 /* {% endblock %}*/
 /* */
 /* {% block body %}*/
 /*   <div style="width:auto; text-align:center">*/
-/*   <h2>{{ advert.title }}</h2>*/
-/*   <i>Par {{ advert.author }}, le {{ advert.date|date('d/m/Y') }}</i>*/
+/* */
 /* */
 /* <div class= "container">*/
 /* */
-/*   <h2>L'article a été poster aver succès BRAVO!!! </h2>*/
+/*   <h1>Le Post a été poster aver succès! </h1>*/
 /* */
 /* </div>*/
 /* */

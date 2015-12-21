@@ -29,3 +29,7 @@ esiea_blog_article:
     defaults: { _controller: EsieaBlogBundle:Default:article }
     requirements:
         id: \d+
+
+esiea_blog_login:
+    pattern: /login
+    defaults: { _controller: EsieaBlogBundle:Default:login }

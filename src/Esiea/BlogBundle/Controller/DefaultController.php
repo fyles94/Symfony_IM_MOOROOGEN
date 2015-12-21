@@ -10,6 +10,7 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Esiea\BlogBundle\Entity\Advert;
 
 
+
 class DefaultController extends Controller
 {
     /**
@@ -37,23 +38,22 @@ class DefaultController extends Controller
     $advert = $repository->find($id);
 
     if (null === $advert) {
-      throw new NotFoundHttpException("L'annonce d'id ".$id." n'existe pas.");
+      throw new NotFoundHttpException("L'article".$id." n'est pas répertorié.");
       }
 
     return $this->render('EsieaBlogBundle:Default:vue.html.twig', array('advert' => $advert));
     }
 
 
-    public function ajouterAction(Request $request)
+    public function ajouterAction()
     {
-
+    $request = $this->get('request');
     $em = $this->getDoctrine()->getManager();
     $advert = new advert();
     $advert->setDate(new \Datetime());
   
     $formBuilder = $this->get('form.factory')->createBuilder('form', $advert);
     $formBuilder
-      ->add('date','date')
       ->add('title','text')
       ->add('content','textarea')
       ->add('author','text')
@@ -63,7 +63,7 @@ class DefaultController extends Controller
     $formBuilder->add('published', 'checkbox', array('required' => false));
     $form->handleRequest($request);
 
-  if ($form->isValid()) {
+ if ($form->isValid()) {
       $em->persist($advert);
       $em->flush();
       $request->getSession()->getFlashBag()->add('notice', 'Annonce bien enregistrée.');
@@ -72,9 +72,10 @@ class DefaultController extends Controller
       return $this->render('EsieaBlogBundle:Default:ajouter.html.twig', array('form' => $form->createView(),));
   }
 
-    public function modifierAction($id,Request $request)
+    public function modifierAction($id)
     {
 
+    $request = $this->get('request');
     $em = $this->getDoctrine()->getManager();
     $advert = $em->getRepository('EsieaBlogBundle:Advert')->find($id);
 
@@ -84,36 +85,38 @@ class DefaultController extends Controller
    
     $formBuilder = $this->get('form.factory')->createBuilder('form', $advert);
     $formBuilder
-      ->add('date','date', array("data" => $advert->getDate() ) )
+      ->add('date','date', array("data" =>$advert->getDate() ) )
       ->add('title','text', array("data" => $advert->getTitle() ))
       ->add('content','textarea', array("data" => $advert->getContent()))
       ->add('author','text', array("data" => $advert->getAuthor()) )
       ->add('published','checkbox')
-      ->add('save','submit');
+      ->add('Modifier','submit');
 
   $form = $formBuilder->getForm();
-  $form->handleRequest($request);
-  
-   if ($form->isValid()) {
+   if ('POST' == $request->getMethod()){ 
+     $form->bind($request);
+
+        if ($form->isValid()) {
       $em->persist($advert);
       $em->flush();
-      $request->getSession()->getFlashBag()->add('notice','Annonce bien enregistrée.');
+      $request->getSession()->getFlashBag()->add('notice','Annonce soumis.');
       return $this->redirect($this->generateUrl('esiea_blog_vue', array('id' => $advert->getId())));
     }
-  
+}
     return $this->render('EsieaBlogBundle:Default:modifier.html.twig',
     array('form' => $form->createView(),'advert' => $advert));
     }
 
 
 
-    public function supprimerAction($id,Request $request)
+    public function supprimerAction($id)
     {
 
+    $request = $this->get('request');
     $em = $this->getDoctrine()->getManager();
     $advert = $em->getRepository('EsieaBlogBundle:Advert')->find($id);
     if ($advert == null) {
-      throw $this->createNotFoundException("L'annonce d'id ".$id." n'existe pas.");
+      throw $this->createNotFoundException("L'article".$id." n'est pas répertorié.");
     }
     if ($request->isMethod('POST')) {
     
@@ -132,9 +135,17 @@ class DefaultController extends Controller
     $advert = $em->getRepository('EsieaBlogBundle:Advert')->find($id);
 
   if (null === $advert) {
-    throw new NotFoundHttpException("L'annonce d'id ".$id." n'existe pas.");
+    throw new NotFoundHttpException("L'article".$id." n'est pas répertorié.");
     } 
 
     return $this->render('EsieaBlogBundle:Default:article.html.twig', array('advert'=> $advert));
   }
-}
+
+public function loginAction()
+    {
+ 
+
+    return $this->render('EsieaBlogBundle:Default:login.html.twig');
+
+    }
+  }

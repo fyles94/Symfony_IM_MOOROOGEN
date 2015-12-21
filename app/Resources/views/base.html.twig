@@ -4,28 +4,30 @@
             <meta charset="UTF-8"/>
             <title>{% block title %}{% endblock %} -Mon Blog</title>
             <meta name="viewport" content="width-device-width, initial-scale=1.0"/>
-            <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}"/>
             <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-            <link rel="stylesheet" href="{{ asset('css/add.css') }}" type="text/css"/>
-            {% block stylesheets %}{% endblock %}
-            <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
+            {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}"/>
+            <link rel="stylesheet" href="{{ asset('css/add.css')}}"/>  
+            <link rel="stylesheet" href="{{ asset('css/style.css')}}"/>
+ 
+            {% endblock %}
+        <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
         </head>
         <body>
 
-          {% block nav %}
-          {% include '::nav.html.twig' %}
-          {% endblock %}
+      <header class="page-header">
+              {% include '::nav.html.twig' %}
+    </header>
+    <div class="container">
+<a href="{{path('esiea_blog_homepage')}}"><img src="http://primers.xyz/problems/3/pokemon.jpg" width=100%></a>  
+</div>
+        {% block body %}{% endblock %}
 
-
-        {% block body %}
-        {% endblock %}
-
-      </div>
-
-    </div>
-        {% block javascripts %}{% endblock %}
+        {% block javascripts %}
         <script src="//code.jquery.com/jquery.min.js"></script>
         <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+        {% endblock %}
+
         </body>
     </html>
 

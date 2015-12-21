@@ -1,21 +1,21 @@
 {% extends "::base.html.twig" %}
 
 {% block title %}
-  Voir l'article en détail - {{ parent() }}
+  Voir l'article en détail {{ parent() }}
 {% endblock %}
 
 {% block body %}
-
 
  <div style="width:auto; text-align:center ">
         <div class="title">
          {{advert.title}}</div>
         <div class="text">par {{ advert.author }},
         le {{ advert.date|date('d/m/Y') }}</div>
+
       <div class="text">{{ advert.content }}</div>
 
      </a>
-              <a href="{{ path('esiea_blog_modifier', {'id': advert.id}) }}" class="btn btn-default">> 
+              <a href="{{ path('esiea_blog_modifier', {'id': advert.id}) }}" class="btn btn-default">
              Modifier l'information
     </a>
           <a href="{{ path('esiea_blog_supprimer', {'id': advert.id}) }}" class="btn btn-danger">

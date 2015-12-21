@@ -164,6 +164,11 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
+        // esiea_blog_login
+        if ($pathinfo === '/login') {
+            return array (  '_controller' => 'Esiea\\BlogBundle\\Controller\\DefaultController::loginAction',  '_route' => 'esiea_blog_login',);
+        }
+
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();
     }
 }

@@ -71,8 +71,7 @@ class Advert
      */
     public function setDate($date)
     {
-        $this->date = $date;
-
+        $this->date = $date = new \Datetime();
         return $this;
     }
 
@@ -172,4 +171,3 @@ class Advert
         return $this->published;
     }
 }
-
