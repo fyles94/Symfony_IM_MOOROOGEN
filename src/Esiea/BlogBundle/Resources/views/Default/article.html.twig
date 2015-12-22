@@ -11,9 +11,9 @@
          {{advert.title}}</div>
         <div class="text">par {{ advert.author }},
         le {{ advert.date|date('d/m/Y') }}</div>
-
+ <div class="transbox">
       <div class="text">{{ advert.content }}</div>
-
+</div>
      </a>
               <a href="{{ path('esiea_blog_modifier', {'id': advert.id}) }}" class="btn btn-default">
              Modifier l'information

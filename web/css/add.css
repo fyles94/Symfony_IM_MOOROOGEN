@@ -51,6 +51,10 @@ div.transbox {
 	border:	 solid;
 	border-radius: 20px;
 	border-color: #FF662A;
+	padding-bottom: 10px;
+	padding-top: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
 	
 }
 
