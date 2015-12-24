@@ -236,13 +236,13 @@ class NumberToLocalizedStringTransformerTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($to, $transformer->reverseTransform($from));
     }
 
-    /**
-     * @see https://github.com/symfony/symfony/issues/7609
-     *
-     * @requires extension mbstring
-     */
+    // https://github.com/symfony/symfony/issues/7609
     public function testReverseTransformWithGroupingAndFixedSpaces()
     {
+        if (!function_exists('mb_detect_encoding')) {
+            $this->markTestSkipped('The "mbstring" extension is required for this test.');
+        }
+
         // Since we test against other locales, we need the full implementation
         IntlTestHelper::requireFullIntl($this);
 
@@ -583,10 +583,13 @@ class NumberToLocalizedStringTransformerTest extends \PHPUnit_Framework_TestCase
     /**
      * @expectedException \Symfony\Component\Form\Exception\TransformationFailedException
      * @expectedExceptionMessage The number contains unrecognized characters: "foo8"
-     * @requires extension mbstring
      */
     public function testReverseTransformDisallowsCenteredExtraCharactersMultibyte()
     {
+        if (!function_exists('mb_detect_encoding')) {
+            $this->markTestSkipped('The "mbstring" extension is required for this test.');
+        }
+
         // Since we test against other locales, we need the full implementation
         IntlTestHelper::requireFullIntl($this);
 
@@ -600,10 +603,13 @@ class NumberToLocalizedStringTransformerTest extends \PHPUnit_Framework_TestCase
     /**
      * @expectedException \Symfony\Component\Form\Exception\TransformationFailedException
      * @expectedExceptionMessage The number contains unrecognized characters: "foo8"
-     * @requires extension mbstring
      */
     public function testReverseTransformIgnoresTrailingSpacesInExceptionMessage()
     {
+        if (!function_exists('mb_detect_encoding')) {
+            $this->markTestSkipped('The "mbstring" extension is required for this test.');
+        }
+
         // Since we test against other locales, we need the full implementation
         IntlTestHelper::requireFullIntl($this);
 
@@ -628,10 +634,13 @@ class NumberToLocalizedStringTransformerTest extends \PHPUnit_Framework_TestCase
     /**
      * @expectedException \Symfony\Component\Form\Exception\TransformationFailedException
      * @expectedExceptionMessage The number contains unrecognized characters: "foo"
-     * @requires extension mbstring
      */
     public function testReverseTransformDisallowsTrailingExtraCharactersMultibyte()
     {
+        if (!function_exists('mb_detect_encoding')) {
+            $this->markTestSkipped('The "mbstring" extension is required for this test.');
+        }
+
         // Since we test against other locales, we need the full implementation
         IntlTestHelper::requireFullIntl($this);
 

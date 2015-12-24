@@ -28,6 +28,8 @@ use Symfony\Component\Validator\Exception\MissingOptionsException;
  * @property array $groups The groups that the constraint belongs to
  *
  * @author Bernhard Schussek <bschussek@gmail.com>
+ *
+ * @api
  */
 abstract class Constraint
 {
@@ -114,6 +116,8 @@ abstract class Constraint
      * @throws ConstraintDefinitionException When you don't pass an associative
      *                                       array, but getDefaultOption() returns
      *                                       null
+     *
+     * @api
      */
     public function __construct($options = null)
     {
@@ -225,6 +229,8 @@ abstract class Constraint
      * Adds the given group if this constraint is in the Default group.
      *
      * @param string $group
+     *
+     * @api
      */
     public function addImplicitGroupName($group)
     {
@@ -241,6 +247,8 @@ abstract class Constraint
      * @return string
      *
      * @see __construct()
+     *
+     * @api
      */
     public function getDefaultOption()
     {
@@ -254,6 +262,8 @@ abstract class Constraint
      * @return array
      *
      * @see __construct()
+     *
+     * @api
      */
     public function getRequiredOptions()
     {
@@ -268,6 +278,8 @@ abstract class Constraint
      * behaviour.
      *
      * @return string
+     *
+     * @api
      */
     public function validatedBy()
     {
@@ -282,6 +294,8 @@ abstract class Constraint
      * Constraint::CLASS_CONSTRAINT and Constraint::PROPERTY_CONSTRAINT.
      *
      * @return string|array One or more constant values
+     *
+     * @api
      */
     public function getTargets()
     {

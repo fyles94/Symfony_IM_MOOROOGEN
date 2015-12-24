@@ -23,7 +23,7 @@ abstract class AbstractLayoutTest extends \Symfony\Component\Form\Test\FormInteg
     protected function setUp()
     {
         if (!extension_loaded('intl')) {
-            $this->markTestSkipped('Extension intl is required.');
+            $this->markTestSkipped('The "intl" extension is not available');
         }
 
         \Locale::setDefault('en');

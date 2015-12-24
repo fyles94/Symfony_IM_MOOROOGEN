@@ -105,7 +105,7 @@ abstract class AbstractNormalizer extends SerializerAwareNormalizer implements N
     /**
      * Set normalization callbacks.
      *
-     * @param callable[] $callbacks help normalize the result
+     * @param array $callbacks help normalize the result
      *
      * @return self
      *
